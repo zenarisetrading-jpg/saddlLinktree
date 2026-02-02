@@ -1,0 +1,267 @@
+:root {
+    /* Brand Palette extracted from saddl.io */
+    --primary-blue: #2A8EC9;
+    --primary-hover: #2276A8;
+
+    --bg-color: #f8fafc;
+    /* Slate 50 */
+    --text-color: #0f172a;
+    /* Slate 900 */
+    --text-muted: #64748b;
+    /* Slate 500 */
+
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    /* Slate 200 */
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --hover-bg: #f1f5f9;
+    /* Slate 100 */
+
+    --color-website: #2A8EC9;
+    /* Brand Blue */
+    --color-linkedin: #0a66c2;
+    --color-instagram: #e1306c;
+    --color-demo: #0f172a;
+    /* Slate 900 for serious CTA */
+
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --max-width: 680px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background Gradients from saddl.io Hero */
+.bg-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* bg-gradient-to-br from-slate-50 via-white to-sky-50/30 */
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, rgba(240, 249, 255, 0.5) 100%);
+}
+
+/* Container */
+.link-tree-container {
+    width: 100%;
+    max-width: var(--max-width);
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Profile Header */
+.profile-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-circle {
+    width: 106px;
+    height: 106px;
+    border-radius: 50%;
+    /* Subtle gradient border foundation */
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+    padding: 4px;
+    background-clip: content-box;
+    border: 2px solid transparent;
+    outline: 2px solid white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.profile-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    color: var(--text-color);
+}
+
+.profile-bio {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+/* Links List */
+.links-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Logic to assign CSS variables based on classes */
+.link-website {
+    --theme-color: var(--color-website);
+}
+
+.link-linkedin {
+    --theme-color: var(--color-linkedin);
+}
+
+.link-instagram {
+    --theme-color: var(--color-instagram);
+}
+
+.link-demo {
+    --theme-color: var(--color-demo);
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.2s ease-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+/* Icon Box Styling - Clean */
+.icon-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    background: #f1f5f9;
+    /* Slate 100 */
+    border-radius: 10px;
+    margin-right: 1rem;
+    transition: all 0.2s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--theme-color);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--theme-color) inset;
+    background: #ffffff;
+}
+
+/* On hover, fill the icon box */
+.link-card:hover .icon-box {
+    background: var(--theme-color);
+    color: #ffffff;
+}
+
+.link-card .icon-box i {
+    transition: color 0.2s ease;
+}
+
+.link-text {
+    flex: 1;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    padding-right: 40px;
+    color: var(--text-color);
+}
+
+/* Share Icon */
+.share-icon {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.2s ease;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    position: absolute;
+    right: 1.25rem;
+}
+
+.link-card:hover .share-icon {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--theme-color);
+}
+
+/* Footer */
+.simple-footer {
+    margin-top: 3.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.15s;
+}
+
+.delay-3 {
+    animation-delay: 0.2s;
+}
+
+.delay-4 {
+    animation-delay: 0.25s;
+}
+
+.delay-5 {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .link-tree-container {
+        padding: 2rem 1rem;
+    }
+
+    .logo-circle {
+        width: 88px;
+        height: 88px;
+    }
+}
